@@ -53,7 +53,6 @@
 $(function(){
 
 var cir= $('.a1').eq(0);
-var btn = $('<button class="but">hi</button>');
 var bd= $('body');
 var n = 2;
 var i = 0;
@@ -89,7 +88,6 @@ console.log(he);
 			// }
 		}	
 
-cir.after(btn);
 bd.colors(i+3);
 
 	cir.click(
@@ -110,37 +108,40 @@ var w = 500;
 var t= 100;
 var l= 300;
 
-	btn.click(function(){
+	bd.click(function(){
+		var position = cir.css('top');
+		console.log(position);
 
-
-			cir.colors(i+1);
-				cir.animate({
-				width:'toggle',
-				height:'toggle',
-				top: '-=200px',
-				left:'-=200px'
-			},500)
-				if(n<=21){
-					cir.after('<div id="a'+n+'" class="a2"></div>');
-					$('#a'+n).animate({
-						top:t,
-						left: l,
-						'border-radius':w/2,
-						width:w,
-						height:w
-					},500);
-
-					$('#a'+n).colors(i+2);	
-
-					n++;
-					w+=100;	
-					t-=50;
-					l-=50;
-				}
-
-				
-	})
-
+		if(position == '350px'){
+		
+		
+					cir.colors(i+1);
+						cir.animate({
+						width:'toggle',
+						height:'toggle',
+						top: '-=200px',
+						left:'-=200px'
+					},500)
+						if(n<=21){
+							cir.after('<div id="a'+n+'" class="a2"></div>');
+							$('#a'+n).animate({
+								top:t,
+								left: l,
+								'border-radius':w/2,
+								width:w,
+								height:w
+							},500);
+		
+							$('#a'+n).colors(i+2);	
+		
+							n++;
+							w+=100;	
+							t-=50;
+							l-=50;
+						}
+					}
+						
+			})
 })
 
 
